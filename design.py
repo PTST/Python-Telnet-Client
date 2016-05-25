@@ -113,6 +113,6 @@ class Ui_MainWindow(object):
         self.acsbttn.setText(_translate("MainWindow", "ACS", None))
         self.routerIPLabel.setText(_translate("MainWindow", "Router IP", None))
         self.rootPasswordLabel.setText(_translate("MainWindow", "Root Password", None))
-        self.unitIP.setText(_translate("MainWindow", "IP på enhed", None))
+        self.unitIP.setText(_translate("MainWindow", "Enheds IP", None))
         self.portbttn.setText(_translate("MainWindow", "Sæt Porte", None))
 

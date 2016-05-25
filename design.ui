@@ -131,7 +131,7 @@
         <item>
          <widget class="QLineEdit" name="unitIP">
           <property name="text">
-           <string>IP på enhed</string>
+           <string>Enheds IP</string>
           </property>
          </widget>
         </item>
