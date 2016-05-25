@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 from PyQt4 import QtGui
 from PyQt4 import QtCore
 import sys
@@ -5,10 +8,19 @@ import design
 import telnetlib
 import time
 
+userip = "85.81.8.40"
+rootpw = "daca1ea1fb"
 user = "support"
 port = "23023"
-acs = "wireless acs rescan"
+acs = "wireless acs rescan\r\n wireless acs scanreport"
 cnt = "connection stats"
+
+
+
+
+
+
+
 
 class EmittingStream(QtCore.QObject):
 
@@ -21,9 +33,27 @@ class ExampleApp(QtGui.QMainWindow, design.Ui_MainWindow):
     def __init__(self, parent=None):
         super(ExampleApp, self).__init__(parent)
         self.setupUi(self)
-        self.cntbttn.clicked.connect(self.cntstats)
+        self.cntbttn.clicked.connect(self.cntset)
+        self.cntbttn.clicked.connect(self.cpeconnect)
+        self.acsbttn.clicked.connect(self.acsset)
+        self.acsbttn.clicked.connect(self.cpeconnect)
+        self.portbttn.clicked.connect(self.portset)
         sys.stdout = EmittingStream(textWritten=self.normalOutputWritten)
-       
+        
+        pfwlist = [
+            self.trUtf8('Portforward liste'),
+            self.tr('Chromecast'),
+            self.tr('Apple TV'),
+            self.tr('Playstation 4'),
+        ]          
+        self.comboBox.clear()
+        self.comboBox.addItems(pfwlist)        
+              
+    def portset(self):
+        print "success"
+        
+        
+        
         
     def __del__(self):
         # Restore sys.stdout
@@ -38,11 +68,22 @@ class ExampleApp(QtGui.QMainWindow, design.Ui_MainWindow):
         self.textEdit.setTextCursor(cursor)
         self.textEdit.ensureCursorVisible()    
         
+    def cntset(self):
+        global command
+        command = cnt
         
-    def cntstats(self):
+    def acsset(self):
+        global command
+        command = acs    
+        
+        
+    def cpeconnect(self):
         HOST = str(self.RouterIP.text())
         password = str(self.rootPassword.text())
+        portvalg = str(self.comboBox.currentText())
+        uip = str(self.unitIP.text())        
         tn = telnetlib.Telnet()
+        
         
         tn.set_debuglevel(0)
         tn.open(HOST, port, 10)
@@ -56,10 +97,12 @@ class ExampleApp(QtGui.QMainWindow, design.Ui_MainWindow):
         
         tn.read_until("MediaAccess")
         time.sleep(1)
-        tn.write("connection stats\r\n")
+        tn.write(command + "\r\n")
         tn.write("exit\r\n")
         
-        print tn.read_all()        
+        print tn.read_all()
+        
+        
         
         
 def main():
@@ -70,3 +113,5 @@ def main():
     
 if __name__ == '__main__':
     main()
+    
+   
