@@ -7,14 +7,17 @@ import sys
 import design
 import telnetlib
 import time
+import re
+import codecs
 
 userip = "85.81.8.40"
 rootpw = "daca1ea1fb"
 user = "support"
 port = "23023"
-acs = "wireless acs rescan\r\n wireless acs scanreport"
+acs = "wireless acs rescan\r\nwireless acs scanreport"
 cnt = "connection stats"
-
+resetcmmd = "system reset\r\n1\r\n1"
+gipcmmd = "dhcp server pool list"
 
 
 class EmittingStream(QtCore.QObject):
@@ -33,6 +36,10 @@ class ExampleApp(QtGui.QMainWindow, design.Ui_MainWindow):
         self.acsbttn.clicked.connect(self.acsset)
         self.acsbttn.clicked.connect(self.cpeconnect)
         self.portbttn.clicked.connect(self.portset)
+        self.pingbttn.clicked.connect(self.ping)
+        self.resetbttn.clicked.connect(self.reset)
+        self.resetbttn.clicked.connect(self.cpeconnect)
+        self.gipbttn.clicked.connect(self.gip)
         sys.stdout = EmittingStream(textWritten=self.normalOutputWritten)
         
         pfwlist = [
@@ -81,12 +88,9 @@ class ExampleApp(QtGui.QMainWindow, design.Ui_MainWindow):
             command = ccport
         elif portvalg == "Canal Digital GO":
             command = cdport
-        elif portvalg == "Test":
-            command = testport
         else:
             print "Ingen tjeneste valgt"
-            
-        print command
+            return
         
         HOST = str(self.RouterIP.text())
         password = str(self.rootPassword.text())        
@@ -102,12 +106,12 @@ class ExampleApp(QtGui.QMainWindow, design.Ui_MainWindow):
             time.sleep(1)
             tn.write(password + "\r\n")
             
-            tn.read_until("MediaAccess")
-            time.sleep(1)
-            tn.write(command + "\r\n")
-            tn.write("exit\r\n")
+        tn.read_until("MediaAccess")
+        time.sleep(1)
+        tn.write(command + "\r\n")
+        tn.write("exit\r\n")
             
-            print tn.read_all()        
+        print tn.read_all()        
         
     def __del__(self):
         # Restore sys.stdout
@@ -129,6 +133,45 @@ class ExampleApp(QtGui.QMainWindow, design.Ui_MainWindow):
     def acsset(self):
         global command
         command = acs    
+    
+    def reset(self):
+        global command
+        command = resetcmmd
+        print "Router resetter nu, hold eventuelt øje med hvornår den er online igen, ved at pinge den."
+        
+    def gip(self):
+        global command
+        command = gipcmmd
+        
+        HOST = str(self.RouterIP.text())
+        password = str(self.rootPassword.text())        
+        tn = telnetlib.Telnet()        
+        
+        tn.set_debuglevel(0)
+        tn.open(HOST, port, 10)
+        tn.read_until("Username : ")
+        time.sleep(1)
+        tn.write(user + "\r\n")
+        if password:
+            tn.read_until("Password : ")
+            time.sleep(1)
+            tn.write(password + "\r\n")
+            
+        tn.read_until("MediaAccess")
+        time.sleep(1)
+        tn.write(command + "\r\n")
+        tn.write("exit\r\n")
+        
+        line = str(tn.read_all())
+        
+        search10 = re.search( r'10.0.0', line, re.M|re.I)
+        search192 = re.search( r'192.168.1', line, re.M|re.I)
+        if search10:
+            print "GIP er ikke konfigureret, DHCP range er:", search10.group()
+        elif search192:
+            print "GIP er ikke konfigureret, DHCP range er:", search192.group()
+        else:
+            print "GIP er konfigureret"
         
         
     def cpeconnect(self):
@@ -151,10 +194,41 @@ class ExampleApp(QtGui.QMainWindow, design.Ui_MainWindow):
         tn.write(command + "\r\n")
         tn.write("exit\r\n")
         
-        print tn.read_all()
+        line = str(tn.read_all())
         
         
+        if command == cnt:
+            searchcnt = re.search( r'Number of active connections (.*)', line, re.M|re.I)
+            activecnt1 = searchcnt.group()
+            activecnt2 = re.sub(r'Number of active connections              :', "Aktive forbindelser:", activecnt1)
+            print activecnt2
+        elif command == acs:
+            noiseacs1 = re.sub(r' TG788vn v2', "", line)
+            noiseacs2 = re.sub(r'                 ######## 10.5.2.S', "", noiseacs1)
+            noiseacs3 = re.sub(r'                  ####### ', "", noiseacs2)
+            noiseacs4 = re.sub(r'                   ###### CP1448RAPCK', "", noiseacs3)
+            noiseacs5 = re.sub(r'{support}=>wireless acs rescan', "", noiseacs4)
+            noiseacs6 = re.sub(r'{support}=>wireless acs scanreport', "", noiseacs5)
+            noiseacs7 = re.sub(r'{support}=>exit', "", noiseacs6)
+            print noiseacs7
+            
+            
         
+    def ping(self):
+        """
+        Returns True if host responds to a ping request
+        """
+        host = str(self.RouterIP.text())
+        import os, platform
+        
+        # Ping parameters as function of OS
+        ping_str = "-n 1" if  platform.system().lower()=="windows" else "-c 1"
+        
+        # Ping
+        if os.system("ping " + ping_str + " " + host) == 0:
+            print "Pinger"
+        else:
+            print "Pinger ikke"
         
 def main():
     app = QtGui.QApplication(sys.argv)
