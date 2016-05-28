@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>portvalg</class>
+ <widget class="QWidget" name="portvalg">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>464</width>
+    <height>636</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>464</width>
+    <height>636</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <item>
+    <layout class="QFormLayout" name="formLayout">
+     <property name="fieldGrowthPolicy">
+      <enum>QFormLayout::FieldsStayAtSizeHint</enum>
+     </property>
+     <item row="0" column="0">
+      <widget class="QLabel" name="port1Label">
+       <property name="text">
+        <string>Port 1</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="port1LineEdit"/>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="port2Label">
+       <property name="text">
+        <string>Port 2</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="port2LineEdit"/>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="port3Label">
+       <property name="text">
+        <string>Port 3</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLineEdit" name="port3LineEdit"/>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="port4Label">
+       <property name="text">
+        <string>Port 4</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLineEdit" name="port4LineEdit"/>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="port5Label">
+       <property name="text">
+        <string>Port 5</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QLineEdit" name="port5LineEdit"/>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="port6Label">
+       <property name="text">
+        <string>Port 6</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="QLineEdit" name="port6LineEdit"/>
+     </item>
+     <item row="6" column="0">
+      <widget class="QLabel" name="port7Label">
+       <property name="text">
+        <string>Port 7</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="1">
+      <widget class="QLineEdit" name="port7LineEdit"/>
+     </item>
+     <item row="7" column="0">
+      <widget class="QLabel" name="port8Label">
+       <property name="text">
+        <string>Port 8</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="1">
+      <widget class="QLineEdit" name="port8LineEdit"/>
+     </item>
+     <item row="8" column="0">
+      <widget class="QLabel" name="port9Label">
+       <property name="text">
+        <string>Port 9</string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="1">
+      <widget class="QLineEdit" name="port9LineEdit"/>
+     </item>
+     <item row="9" column="0">
+      <widget class="QLabel" name="port10Label">
+       <property name="text">
+        <string>Port 10</string>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="1">
+      <widget class="QLineEdit" name="port10LineEdit"/>
+     </item>
+     <item row="10" column="0">
+      <widget class="QLabel" name="port11Label">
+       <property name="text">
+        <string>Port 11</string>
+       </property>
+      </widget>
+     </item>
+     <item row="10" column="1">
+      <widget class="QLineEdit" name="port11LineEdit"/>
+     </item>
+     <item row="11" column="0">
+      <widget class="QLabel" name="port12Label">
+       <property name="text">
+        <string>Port 12</string>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="1">
+      <widget class="QLineEdit" name="port12LineEdit"/>
+     </item>
+     <item row="12" column="0">
+      <widget class="QLabel" name="port13Label">
+       <property name="text">
+        <string>Port 13</string>
+       </property>
+      </widget>
+     </item>
+     <item row="12" column="1">
+      <widget class="QLineEdit" name="port13LineEdit"/>
+     </item>
+     <item row="13" column="0">
+      <widget class="QLabel" name="port14Label">
+       <property name="text">
+        <string>Port 14</string>
+       </property>
+      </widget>
+     </item>
+     <item row="13" column="1">
+      <widget class="QLineEdit" name="port14LineEdit"/>
+     </item>
+     <item row="14" column="0">
+      <widget class="QLabel" name="port15Label">
+       <property name="text">
+        <string>Port 15</string>
+       </property>
+      </widget>
+     </item>
+     <item row="14" column="1">
+      <widget class="QLineEdit" name="port15LineEdit"/>
+     </item>
+     <item row="15" column="0">
+      <widget class="QLabel" name="port16Label">
+       <property name="text">
+        <string>Port 16</string>
+       </property>
+      </widget>
+     </item>
+     <item row="15" column="1">
+      <widget class="QLineEdit" name="port16LineEdit"/>
+     </item>
+     <item row="16" column="0">
+      <widget class="QLabel" name="port17Label">
+       <property name="text">
+        <string>Port 17</string>
+       </property>
+      </widget>
+     </item>
+     <item row="16" column="1">
+      <widget class="QLineEdit" name="port17LineEdit"/>
+     </item>
+     <item row="17" column="0">
+      <widget class="QLabel" name="port18Label">
+       <property name="text">
+        <string>Port 18</string>
+       </property>
+      </widget>
+     </item>
+     <item row="17" column="1">
+      <widget class="QLineEdit" name="port18LineEdit"/>
+     </item>
+     <item row="18" column="0">
+      <widget class="QLabel" name="port19Label">
+       <property name="text">
+        <string>Port 19</string>
+       </property>
+      </widget>
+     </item>
+     <item row="18" column="1">
+      <widget class="QLineEdit" name="port19LineEdit"/>
+     </item>
+     <item row="19" column="0">
+      <widget class="QLabel" name="port20Label">
+       <property name="text">
+        <string>Port 20</string>
+       </property>
+      </widget>
+     </item>
+     <item row="19" column="1">
+      <widget class="QLineEdit" name="port20LineEdit"/>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <layout class="QFormLayout" name="formLayout_2">
+       <property name="fieldGrowthPolicy">
+        <enum>QFormLayout::FieldsStayAtSizeHint</enum>
+       </property>
+       <item row="0" column="0">
+        <widget class="QLabel" name="enhedensIPLabel">
+         <property name="text">
+          <string>Enhedens IP</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="enhedensIPLineEdit"/>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="navnPTjenesteLabel">
+         <property name="text">
+          <string>Navn på Tjeneste</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="navnPTjenesteLineEdit"/>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton">
+       <property name="text">
+        <string>Sæt Porte</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
