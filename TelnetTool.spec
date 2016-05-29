@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['main.py'],
-             pathex=['/Users/PTST/Dev/TelnetPY'],
+             pathex=['C:\\Dev\\TelnetTool'],
              binaries=None,
              datas=None,
              hiddenimports=[],
@@ -26,7 +26,3 @@ exe = EXE(pyz,
           strip=False,
           upx=True,
           console=False , icon='icon.ico')
-app = BUNDLE(exe,
-             name='TelnetTool.app',
-             icon='icon.ico',
-             bundle_identifier=None)
