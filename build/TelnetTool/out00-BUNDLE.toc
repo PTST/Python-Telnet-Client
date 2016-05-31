@@ -1,0 +1,1 @@
+([('TelnetTool', '/Users/PTST/Dev/TelnetPY/dist/TelnetTool', 'EXECUTABLE')],)
