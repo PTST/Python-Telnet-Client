@@ -10,8 +10,7 @@ import time
 import re
 import codecs
 
-userip = "85.81.8.40"
-rootpw = "daca1ea1fb"
+
 user = "support"
 port = "23023"
 acs = "wireless acs rescan\r\nwireless acs scanreport"
@@ -165,15 +164,13 @@ class ExampleApp(QtGui.QMainWindow, design.Ui_MainWindow):
         tn.write("exit\r\n")
         
         line = str(tn.read_all())
+
         
-        search10 = re.search( r'10.0.0', line, re.M|re.I)
-        search192 = re.search( r'192.168.1', line, re.M|re.I)
-        if search10:
-            print "GIP er ikke konfigureret, DHCP range er:", search10.group()
-        elif search192:
-            print "GIP er ikke konfigureret, DHCP range er:", search192.group()
+        searchgip = re.search( r'officialIP', line, re.M|re.I)
+        if searchgip:
+            print "GIP er konfigureret",
         else:
-            print "GIP er konfigureret"
+            print "GIP er ikke konfigureret"
         
         
     def cpeconnect(self):
