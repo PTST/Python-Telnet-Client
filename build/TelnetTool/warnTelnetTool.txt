@@ -1,6 +1,6 @@
-missing module named PyQt4.QtCore.QCoreApplication - imported by PyQt4.QtCore, c:\python27\lib\site-packages\pyinstaller-3.2-py2.7.egg\PyInstaller\loader\rthooks\pyi_rth_qt4plugins.py
-missing module named PySide.QCoreApplication - imported by PySide, c:\python27\lib\site-packages\pyinstaller-3.2-py2.7.egg\PyInstaller\loader\rthooks\pyi_rth_qt4plugins.py
-missing module named PySide - imported by c:\python27\lib\site-packages\pyinstaller-3.2-py2.7.egg\PyInstaller\loader\rthooks\pyi_rth_qt4plugins.py
+missing module named PyQt4.QtCore.QCoreApplication - imported by PyQt4.QtCore, c:\python27\lib\site-packages\PyInstaller\loader\rthooks\pyi_rth_qt4plugins.py
+missing module named PySide.QCoreApplication - imported by PySide, c:\python27\lib\site-packages\PyInstaller\loader\rthooks\pyi_rth_qt4plugins.py
+missing module named PySide - imported by c:\python27\lib\site-packages\PyInstaller\loader\rthooks\pyi_rth_qt4plugins.py
 missing module named unicodedata.ucd_3_2_0 - imported by unicodedata, stringprep, encodings.idna
 missing module named codecs.mbcs_encode - imported by codecs, encodings.mbcs
 missing module named codecs.mbcs_decode - imported by codecs, encodings.mbcs
