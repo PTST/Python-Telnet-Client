@@ -4,6 +4,7 @@
 - Få aktive forbindelser.
 - Tjekke GIP status.
 - Gendan routeren til fabriks indstillinger.
+- Fix H Firmware
 - Portforwarde til følgende tjenester:
   - Apple TV
   - Sonos
@@ -22,7 +23,8 @@ ACS | wireless acs rescan <br> wireless acs scanreport
 Connection Stats | connection stats
 Reset CPE | system reset <br> 1 <br> 1
 GIP Tjek | dhcp server pool list
-Sæt Porte | service host add name=<b>navn</b><br>service host rule add name=<b>navn</b> protocol=any portrange=<b>port</b><br>service host assign name=<b>navn</b> host=<b>IP</b> log=disabled<br><br>Tager <b>navn</b> og <b>port</b>, fra den tjeneste der er blevet valgt fra <i>Portforward liste</i>. og <b>IP</b> fra feltet <i>Enheds IP</i>
+Fix H Firmware | dns client dnsadd addr=212.242.40.3 port=53<br>dns client dnsadd addr=212.242.40.51 port=53
+Port Forward | service host add name=<b>navn</b><br>service host rule add name=<b>navn</b> protocol=any portrange=<b>port</b><br>service host assign name=<b>navn</b> host=<b>IP</b> log=disabled<br><br>Tager <b>navn</b> og <b>port</b>, fra den tjeneste der er blevet valgt fra <i>Portforward liste</i>. og <b>IP</b> fra feltet <i>Enheds IP</i>
 
 <h3>Screenshots af TelnetTool</h3>
 
