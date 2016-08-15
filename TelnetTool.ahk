@@ -79,11 +79,11 @@ ControlSend, ,telnet %routerIP% 23023 -f log.txt,ahk_pid %PID1%, , ,            
 ControlSend, ,{enter},ahk_pid %PID1%, , ,              ;enter
 sleep,500
 GuiControl,, progress, 20
-ControlSend, ,support,ahk_pid %PID1%, , ,              ;Brugernavn
+ControlSend, ,admin,ahk_pid %PID1%, , ,              ;Brugernavn
 ControlSend, ,{enter},ahk_pid %PID1%, , ,              ;enter
 sleep,500
 GuiControl,, progress, 30
-ControlSend, ,%rootPW%,ahk_pid %PID1%, , ,                ;Root password
+ControlSend, ,1234,ahk_pid %PID1%, , ,                ;Root password
 ControlSend, ,{enter},ahk_pid %PID1%, , ,              ;enter
 sleep,500
 GuiControl,, progress, 40
