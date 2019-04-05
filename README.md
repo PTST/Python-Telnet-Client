@@ -1,5 +1,6 @@
 <h1>TelnetTool</h1>
 <h3>Et værktøj til at erstatte brugen af telnet, til følgende funktioner.</h3>
+
 - Scanne WiFi kanaler på routeren.
 - Få aktive forbindelser.
 - Tjekke GIP status.
